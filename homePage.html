@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 	<!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bootstrap-social-gh-pages/bootstrap-social.css">
+    <link rel="stylesheet" href="style/styles.css">
+
+	<title>HOME</title>
+
+     
+ </head>
+<body>
+
+
+
+<nav class="navbar navbar-inverse navbar-toggleable-sm  fixed-top ">
+    <div class="container">
+        
+        <button class="navbar-toggler " type= "button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>   
+        </button>
+
+        <a class="navbar-brand" href="./homePage.html"><img src="img/logo.jpg" width="120" ></a>
+        <div class="collapse navbar-collapse"  id="Navbar">
+            <ul class="navbar-nav" >
+           
+            	<li style="visibility: hidden;" class="nav-item "><a class="nav-link" href="./homePage.html"><span class="fa fa-home"></span> H</a></li>
+                <li style="visibility: hidden;" class="nav-item "><a class="nav-link" href="./homePage.html"><span class="fa fa-home"></span> Ho</a></li>
+                <li class="nav-item active"><a class="nav-link" href="./homePage.html"><span class="fa fa-home"></span> Home</a></li>
+                <li class="nav-item "><a class="nav-link" href="./videoSummarizer.html"><span class="fa fa-play "></span> Video</a></li>
+                 <li class="nav-item "><a class="nav-link" href="speechSummarizer.html"><span class="fa fa-microphone "></span> Speech</a></li>
+                 <li class="nav-item"><a class="nav-link" href="./imageSummarizer.html"><span class="fa fa-image"></span> Image</a></li>
+                <li class="nav-item "><a class="nav-link" href="./textSummarizer.html"><span class="fa fa-file"></span> Text</a></li>
+                <li class="nav-item "><a class="nav-link" href="./savedsmmry.html"><span class="fa fa-list"></span> Board</a></li>
+                <li style="visibility: hidden;" class="nav-item "><a class="nav-link" href="./homePage.html"><span class="fa fa-home"></span> Ho</a></li>
+                
+
+
+                <li class="nav-item " id="login-li"><a data-toggle="modal" data-target="#loginModal" class="nav-link" ><span class="fa fa-sign-in"></span> <span id="loginIcon" >Login</span></a></li>
+
+                <li class="nav-item " id="logout-li"><a class="nav-link" ><span class="fa fa-sign-in"></span> <span onclick="logout()" id="logoutIcon" >Logout</span></a></li>
+                </ul>
+                <br>
+            <span id="Email"></span>
+
+            	
+
+        </div>
+    </div>
+    </nav>
+
+     <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Login </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                        <input type="email" class="form-control form-control-sm mr-1" id="email_field" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="exampleInputPassword3">Password</label>
+                        <input type="password" class="form-control form-control-sm mr-1" id="password_field" placeholder="Password">
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox"> Remember me
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" onclick="signUp()" class="btn btn-primary btn-sm" data-dismiss="modal">Sign up</button>
+                <button type="submit" onclick="login()" class="btn btn-primary btn-sm" data-dismiss="modal">Sign in</button>
+
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+<div class="container">
+    <header class="jumbotron ">
+	      <br><br>
+		<div class="row">
+			
+			<div class="col-12 offset-sm-3 col-sm-6">
+	 			<br>
+                 <img src="./img/logo2-01.jpg" height="60">
+                 <br>
+            </div>
+
+            </div>
+
+        <div class="row">
+            
+            <div class="col-12 offset-sm-4 col-sm-4">
+                <br>
+                 <img src="./img/logo3-01.jpg" height="80">
+                 <br>
+            </div>
+
+            </div>
+        		
+   		
+    </header>
+</div>
+  <div class="container">
+
+    <div class="row">
+        <div class="col-12 col-sm-3">
+            <a href="./textSummarizer.html"><img src="./img/logoChoice-04.jpg" height="230"></a>
+            <p>s</p>            
+        </div>
+        <div class="col-12 col-sm-3">
+            <a href="./videoSummarizer.html"><img src="./img/logoChoice-02.jpg" height="230"></a>            
+        </div>
+        <div class="col-12 col-sm-3">
+            <a href="./speechSummarizer.html"><img src="./img/logoChoice-03.jpg" height="230"></a>            
+        </div>
+        <div class="col-12 col-sm-3">
+            <a href="./imageSummarizer.html"><img src="./img/logoChoice-05.jpg" height="230"></a>            
+        </div>
+                    
+
+    </div>
+    
+   </div>
+
+
+<div class="container">
+
+<div class="row">
+
+
+
+</div>
+
+</div>
+
+<footer class="footer footerstyle">
+        <div class="container">
+            <div class="row">
+                <div class="col-5 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="./videoSummarizer.html">Video</a></li>
+                        <li><a href="./speechSummarizer.html">Speech</a></li>
+                        <li><a href="./imageSummarizer.html">Image</a></li>
+                        <li><a href="./textSummarizer.html">Text</a></li>
+                        <li><a href="./savedsmmry.html">Board</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-sm-5">
+                    <h5>Made with Hardwork</h5>
+                    <address>
+		              At Rajendra Bhawan,<br>
+                      IIT Roorkee<br>
+		               <i class="fa fa-phone fa-lg"></i>  &nbsp:   7978946328<br>
+		               <i class="fa fa-fax fa-lg"></i> :  9532788384<br>
+		               <i class="fa fa-envelope fa-lg"></i> : <a href="mailto:swayam1998@gmail.com">swayam1998@gmail.com</a>
+		           </address>
+                </div>
+                <div class="col-sm align-self-center">
+                    <div style="visibility: hidden; text-align:center">
+                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+                        <a class="btn btn-social-icon btn-facebook "href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin "href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+                        <a class="btn btn-social-icon btn-twitter "href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+                        <a class="btn btn-social-icon btn-google "href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
+                        <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
+                    </div>
+                </div>
+           </div>
+           
+        </div>
+    </footer>
+
+		 <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/tether/dist/js/tether.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+            $("#mycarousel").carousel( { interval: 1000 } );
+
+
+              	 $("#carousel-button").click(function(){
+
+            if($("#carousel-button").children("span").hasClass("fa-pause")){
+
+                		$("#mycarousel").carousel('pause');
+                		$("#carousel-button").children("span").removeClass("fa-pause");
+                		$("#carousel-button").children("span").addClass("fa-play");
+            		}
+
+            else if ($("#carousel-button").children("span").hasClass("fa-play")){
+
+            		$("#mycarousel").carousel('cycle');
+            		$("#carousel-button").children("span").removeClass("fa-play");
+            		$("#carousel-button").children("span").addClass("fa-pause");
+            	}
+            });
+
+            $("#carousel-play").click(function(){
+                $("#mycarousel").carousel('cycle');
+            });
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+         });
+    </script>
+     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB31Yjc9qDsJmqZhCKlMQk8_e7xRfXKz10",
+    authDomain: "codefundo2k18.firebaseapp.com",
+    databaseURL: "https://codefundo2k18.firebaseio.com",
+    projectId: "codefundo2k18",
+    storageBucket: "codefundo2k18.appspot.com",
+    messagingSenderId: "85488551038"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script type="text/javascript" src="./index.js"></script>
+    
+
+</body>
+</html>

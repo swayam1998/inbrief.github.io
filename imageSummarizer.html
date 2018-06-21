@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bootstrap-social-gh-pages/bootstrap-social.css">
+    <link rel="stylesheet" href="style/styles.css">
+
+    <title>inBrief</title>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+  </script>
+  <script src="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"
+  type="text/javascript"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min.js"></script>
+  <script type="text/javascript" src="./js/summarizer.js"></script>
+  <script type="text/javascript" src="./js/driver.js">
+  </script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    function processImage() {
+        // **********************************************
+        // *** Update or verify the following values. ***
+        // **********************************************
+
+        // Replace the subscriptionKey string value with your valid subscription key.
+        var subscriptionKey = "9e7b66fe207d47349dd645e3227646f7";
+
+        // Replace or verify the region.
+        //
+        // You must use the same region in your REST API call as you used to obtain your subscription keys.
+        // For example, if you obtained your subscription keys from the westus region, replace
+        // "westcentralus" in the URI below with "westus".
+        //
+        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
+        // a free trial subscription key, you should not need to change this region.
+        var uriBase = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr";
+
+        // Request parameters.
+        var params = {
+            "language": "unk",
+            "detectOrientation ": "true",
+        };
+
+        // Display the image.
+        var sourceImageUrl = document.getElementById("inputImage").value;
+        document.querySelector("#sourceImage").src = sourceImageUrl;
+
+        // Perform the REST API call.
+        $.ajax({
+            url: uriBase + "?" + $.param(params),
+
+            // Request headers.
+            beforeSend: function(jqXHR){
+                jqXHR.setRequestHeader("Content-Type","application/json");
+                jqXHR.setRequestHeader("Ocp-Apim-Subscription-Key", "75424f98f5f348bb8f359d9c16795bba");
+            },
+
+            type: "POST",
+
+            // Request body.
+            
+            data: '{"url": ' + '"' + sourceImageUrl + '"}',
+        })
+
+        .done(function(data) {
+            //Show formatted JSON on webpage.
+                //$("#Imageinfo").val(JSON.stringify(data, null, 1));
+         var languagelist = $('#ImageInfo');
+         var languageword = $('#output');
+            
+             for (var prop7 in data) {
+                if(prop7 != "regions"){
+                languagelist.append(  prop7 + ": " + data[prop7]+ "  |   "   ); }
+            }
+    
+                for (var k = 0; k < data.regions.length; k++){    
+                  var value1=data.regions[k];
+                       
+                       for (var j = 0; j < value1.lines.length; j++) {
+
+                          for (var l = 0; l < value1.lines.length; l++)
+                          {
+                             var value2 = value1.lines[j].words[l];
+                            
+                                
+                                 for(var prop in value2){
+                                   if(prop != "boundingBox"){
+                                      languageword.append( value2[prop]+" "); }
+                                  }
+                                 
+                            } 
+                        }
+                    }
+                          
+        })
+
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            // Display error message.
+            var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+            errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ? 
+                jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
+            alert(errorString);
+        });
+    };
+</script>
+
+
+
+    
+    <nav class="navbar navbar-inverse navbar-toggleable-sm  fixed-top ">
+    <div class="container">
+        
+        <button class="navbar-toggler " type= "button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>   
+        </button>
+
+        <a class="navbar-brand" href="./homePage.html"><img src="img/logo.jpg" width="150"></a>
+        <div class="collapse navbar-collapse"  id="Navbar">
+            <ul class="navbar-nav" >
+                <li style="visibility: hidden;" class="nav-item "><a class="nav-link" href="./homePage.html"><span class="fa fa-home"></span> Ho</a></li>
+                <li class="nav-item "><a class="nav-link" href="./homePage.html"><span class="fa fa-home"></span> Home</a></li>
+                <li class="nav-item "><a class="nav-link" href="./videoSummarizer.html"><span class="fa fa-play "></span> Video</a></li>
+                 <li class="nav-item"><a class="nav-link" href="speechSummarizer.html"><span class="fa fa-microphone "></span> Speech</a></li>
+                 <li class="nav-item active"><a class="nav-link" href="./imageSummarizer.html"><span class="fa fa-image"></span> Image</a></li>
+                <li class="nav-item"><a class="nav-link" href="./textSummarizer.html"><span class="fa fa-file"></span> Text</a></li>
+                 <li class="nav-item "><a class="nav-link" href="./savedsmmry.html"><span class="fa fa-list"></span> Board</a></li>
+               
+            </ul>
+        </div>
+    </div>
+    </nav>
+      <br><br><br>
+
+
+
+    <div class="container contentstyle">
+        <br>  
+                <div class="row">
+            <ol class="col-12 breadcrumb">
+                <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+                <li class="breadcrumb-item active">Image</li>                
+            </ol>
+
+            <div class="col-12">
+               <h3 style="color: #FFFFFF">Image Summarizer</h3>
+               <hr>
+            </div>
+        </div>
+
+           
+   <div class="row">
+      <div class="col">
+         <form onsubmit="processImage()" action="javascript:void(0);">
+                    <div class=" form-group row">
+                        <label for="firstname" class="col- col-form-label " style="font-weight: bold;font-size: 20px" >&nbsp &nbsp  URL:</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="inputImage" id="inputImage" value="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"  size = "70" >
+                            
+                        </div>
+                        
+                        <div class=" col-md">
+                            <button type="submit" class="btn btn-primary">GO!</button>
+                        </div>
+                    
+                    </div>
+
+                       
+
+         </form>
+      </div>
+      </div>
+    
+    <div class="row">
+      <div class="col col-sm-6">    
+         <div id="imageDiv" style="width:420px; display:table-cell;">
+                 <h4>Source image :</h4>
+                  <br>
+                 <img id="sourceImage" width="400" />
+         </div>
+      </div> 
+      
+
+      <div class="col col-sm-6">
+       <div class="container">
+          <div class="row">   
+            <h4>Image Info :</h4>
+          </div>
+          <div class="row">
+            <p id = "ImageInfo"></p>
+          </div>
+          
+          <div class="row"> 
+           <h4>Image Text : </h4>
+           </div>
+           <div class="row" >
+                <div class="card card-block bg-faded">
+                    
+                        <div class="control-group">
+                            <div class="controls">
+                            <div class="row">
+                                     <textarea  rows="19" class="col input-xlarge" id="output" placeholder="Image text for summarizing"></textarea>
+                            </div>
+                            </div>
+                         </div>
+                    
+                </div>
+           </div>
+           
+          </div> 
+       </div>    
+      </div>
+    </div>
+
+  
+
+
+
+
+        
+        <div class="row">
+        
+        </div>
+
+            <br>
+
+
+                    
+                     <div class=" row">
+                        <div class="offset-5 col-sm-2 center-block text-center " align="">
+                            <a href="#output1"><button  id="summarizeButton" class=" button btn btn-primary" hre>&nbsp Summarize &nbsp</button></a>
+                        </div>
+                    </div>
+                    
+
+            <br>
+        <div class="row">
+             <div class="col col-sm-8 offset-sm-2  ">
+                <div class="card card-block bg-faded">
+                    
+                        <div class="control-group">
+                            <div class="controls">
+                                    <div class="row">
+                                     <textarea  rows="12" class="col" class="input-xlarge" id="output1">Expect the generated summary here...</textarea>
+                                    </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class=" row">
+                        <div class="offset-5 col-sm-2 center-block text-center " align="">
+                            <a href="#output1"><button  id="summarizeButton" onclick="textStore()" class=" button btn btn-primary" hre>&nbsp Save &nbsp</button></a>
+                        </div>
+                    </div>
+                    <br>
+
+
+       
+
+    </div>
+
+    <footer class="footer footerstyle">
+        <div style="visibility: hidden" class="container">
+            <div class="row">             
+                <div class="col-5 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="contactus.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+                      121, Clear Water Bay Road<br>
+                      Clear Water Bay, Kowloon<br>
+                      HONG KONG<br>
+                       <i class="fa fa-phone fa-lg"></i> : +852 1234 5678<br>
+                       <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
+                       <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">confusion@food.net</a>
+                   </address>
+                </div>
+                <div class="col-sm align-self-center">
+                    <div style="text-align:center">
+                       <a class="btn btn-social-icon btn-google" href="https://google.com/+"><i class="fa fa-google-plus"></i></a>
+                        <a class="btn btn-social-icon btn-facebook "href="https://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin "href="https://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+                        <a class="btn btn-social-icon btn-twitter "href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+                        <a class="btn btn-social-icon btn-google "href="https://youtube.com/"><i class="fa fa-youtube"></i></a>
+                        <a class="btn btn-social-icon "href="mailto:"><i class="fa fa-envelope-o"></i></a>
+                    </div>
+                </div>
+           </div>
+           <div class="row justify-content-center">             
+                <div class="col-auto">
+                    <p>© Copyright 2015 Ristorante Con Fusion</p>
+                </div>
+           </div>
+        </div>
+    </footer>
+
+
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/tether/dist/js/tether.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
+<script>
+  var config = {
+    apiKey: "AIzaSyB31Yjc9qDsJmqZhCKlMQk8_e7xRfXKz10",
+    authDomain: "codefundo2k18.firebaseapp.com",
+    databaseURL: "https://codefundo2k18.firebaseio.com",
+    projectId: "codefundo2k18",
+    storageBucket: "codefundo2k18.appspot.com",
+    messagingSenderId: "85488551038"
+  };
+  firebase.initializeApp(config);
+</script>
+ <script type="text/javascript" src="./index.js"></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

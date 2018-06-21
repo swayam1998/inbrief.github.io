@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 	<!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bootstrap-social-gh-pages/bootstrap-social.css">
+    <link rel="stylesheet" href="style/styles.css">
+
+	<title>HOME</title>
+
+     
+ </head>
+<body>
+
+<!-- <script type="text/javascript">
+	authentication();
+</script> -->
+
+
+<nav class="navbar navbar-inverse navbar-toggleable-sm  fixed-top ">
+    <div class="container">
+        
+        <button class="navbar-toggler " type= "button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>   
+        </button>
+
+        <a class="navbar-brand" href="./homePage.html"><img src="img/logo.jpg" width="150" ></a>
+        <div class="collapse navbar-collapse"  id="Navbar">
+            <ul class="navbar-nav" >
+            	<li style="visibility: hidden;" class="nav-item "><a class="nav-link" href="./homePage.html"><span class="fa fa-home"></span> Ho</a></li>
+                <li class="nav-item"><a class="nav-link" href="./homePage.html"><span class="fa fa-home"></span> Home</a></li>
+                <li class="nav-item "><a class="nav-link" href="./videoSummarizer.html"><span class="fa fa-play "></span> Video</a></li>
+                 <li class="nav-item "><a class="nav-link" href="speechSummarizer.html"><span class="fa fa-microphone "></span> Speech</a></li>
+                 <li class="nav-item"><a class="nav-link" href="./imageSummarizer.html"><span class="fa fa-image"></span> Image</a></li>
+                <li class="nav-item "><a class="nav-link" href="./textSummarizer.html"><span class="fa fa-file"></span> Text</a></li>
+                <li class="nav-item active"><a class="nav-link" href="./savedsmmry.html"><span class="fa fa-list"></span> Board</a></li>
+                <li style="visibility: hidden;" class="nav-item "><a class="nav-link" href="./homePage.html"><span class="fa fa-home"></span> Ho</a></li>
+
+                <!-- <li class="nav-item " id="login-li"><a data-toggle="modal" data-target="#loginModal" class="nav-link" ><span class="fa fa-sign-in"></span> <span id="loginIcon" >Login</span></a></li>
+
+                <li class="nav-item " id="logout-li"><a class="nav-link" ><span class="fa fa-sign-in"></span> <span onclick="logout()" id="logoutIcon" >Logout</span></a></li> -->
+               
+               
+            </ul>
+
+            	
+
+        </div>
+    </div>
+    </nav>
+
+    <br><br><br><br><br><br>
+<div class="container">
+   <div class=" row">
+                        <div class="offset-4 col-sm-2  text-center " align="">
+                            <a href="#output1"><button  id="summarizeButton" onclick="authentication()" class=" button btn btn-primary" hre>&nbsp Retrive &nbsp</button></a>
+                        </div>
+
+                        <div class=" col-sm-2  text-center " align="">
+                            <a href="#output1"><button  id="summarizeButton" onclick="refresh()" class=" button btn btn-primary" hre>&nbsp Refresh &nbsp</button></a>
+                        </div>
+
+     </div>
+
+                    </div>
+
+                    <br>
+
+
+     
+
+
+<div class="main-list" id="list_div">
+    
+
+  </div>  
+
+	
+
+
+
+
+		 <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/tether/dist/js/tether.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+            $("#mycarousel").carousel( { interval: 1000 } );
+
+
+              	 $("#carousel-button").click(function(){
+
+            if($("#carousel-button").children("span").hasClass("fa-pause")){
+
+                		$("#mycarousel").carousel('pause');
+                		$("#carousel-button").children("span").removeClass("fa-pause");
+                		$("#carousel-button").children("span").addClass("fa-play");
+            		}
+
+            else if ($("#carousel-button").children("span").hasClass("fa-play")){
+
+            		$("#mycarousel").carousel('cycle');
+            		$("#carousel-button").children("span").removeClass("fa-play");
+            		$("#carousel-button").children("span").addClass("fa-pause");
+            	}
+            });
+
+            $("#carousel-play").click(function(){
+                $("#mycarousel").carousel('cycle');
+            });
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+         });
+   
+    </script>
+     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB31Yjc9qDsJmqZhCKlMQk8_e7xRfXKz10",
+    authDomain: "codefundo2k18.firebaseapp.com",
+    databaseURL: "https://codefundo2k18.firebaseio.com",
+    projectId: "codefundo2k18",
+    storageBucket: "codefundo2k18.appspot.com",
+    messagingSenderId: "85488551038"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script type="text/javascript" src="./index.js"></script>
+    
+
+</body>
+</html>

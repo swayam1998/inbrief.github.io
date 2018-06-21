@@ -1,0 +1,60 @@
+<html>
+<head>
+  <title>InBrief Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="./style/styles.css" />
+</head>
+<body>
+  <div id="login_div" class="main-div">
+    <h3>Welcome to InBrief</h3>
+    <input type="email" placeholder="Email..." id="email_field" />
+    <input type="password" placeholder="Password..." id="password_field" />
+
+    <button onclick="login()">Login to Account</button>
+    <button onclick="signUp()">Signup</button>
+  </div>
+
+  
+  <!-- <div class="Textarea" id="textera">
+    <textarea rows="10" cols="80" id="textInput"></textarea>
+  </div> -->
+
+  <div id="user_div" class="loggedin-div">
+    <h3>Welcome User</h3>
+    <p id="user_para">Welcome to InBrief</p>
+    <button onclick="logout()">Logout</button>
+<button id="smmrize" onclick="textStore()">summarize it !</button>
+<!-- <button id="Sevedsummary" onclick="Savedsmmry()">See Saved Summury !</button> -->
+  </div>
+  
+  <div class="main-list" id="list_div">
+    <div class="list-item">
+      <h3></h3>
+      <button id="deletebtn" class="delete-div">Delete</button>
+    </div>
+
+  </div>  
+  <script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB31Yjc9qDsJmqZhCKlMQk8_e7xRfXKz10",
+    authDomain: "codefundo2k18.firebaseapp.com",
+    databaseURL: "https://codefundo2k18.firebaseio.com",
+    projectId: "codefundo2k18",
+    storageBucket: "codefundo2k18.appspot.com",
+    messagingSenderId: "85488551038"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="./js/index.js"></script> -->
+
+
+</body>
+</html>
